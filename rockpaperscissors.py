@@ -19,4 +19,3 @@ elif user == 'r' and computer == 'p':
     print("computer selected paper and you lost")
 elif user =='p' and computer =='s':
     print("Computer selected scissors and you lost")
-
