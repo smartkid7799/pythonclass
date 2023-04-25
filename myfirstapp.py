@@ -9,7 +9,7 @@ def enter_clicked():
     print(Address)
     print(Age)
     infoLabel.configure()
-        print(strlist)
+    print(strlist)
 
 app = ctk.CTk()
 app.geometry("500x300")
