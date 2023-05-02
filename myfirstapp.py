@@ -8,7 +8,7 @@ def enter_clicked():
     print(name)
     print(Address)
     print(Age)
-    infoLabel.configure()
+    infoLabel.configure(text=name+age+address)
     print(strlist)
 
 app = ctk.CTk()
