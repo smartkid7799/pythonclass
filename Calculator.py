@@ -4,12 +4,48 @@ currentText="0"
 num=0
 op=""
 
+def updateText():
+    global currentText
+    if len(currentText) ==0:
+        currentText = "0"
+
+
+    if len(currentText) > 12:
+        currentText = currentText[:12]
+
+
+    calcLabel.configure(text=currentText)
 def addText(str):
     global currentText
     if float(currentText) ==0 and str != "." and "." not in currentText:
         currentText=""
+
+
+
+    if '.' in currentText and str == '.':
+        return
+
+
+
     currentText = currentText + str
-    calcLabel.configure(text=currentText)
+    updateText()
+
+def CE():
+    global currentText
+    global num
+    global op
+    currentText = "0"
+    num = 0
+    op = ""
+
+    updateText()
+
+def Back():
+    global currentText
+    currentText = currentText[0:len(currentText)-1]
+
+
+    updateText()
 
 app=ctk.CTk()
 app.geometry("350x500")
@@ -25,10 +61,10 @@ btnFrame.grid(row=1, column=0, padx=5, pady=5)
 calcLabel=ctk.CTkLabel(calcFrame, text="0", anchor="e", font=ctk.CTkFont(size=50), width=340, height=0)
 calcLabel.grid(row=0, column=0)
 
-CEbtn=ctk.CTkButton(btnFrame, text="CE", anchor="nw", width=75, height=65,text_color="black",fg_color="#37b8b4",  font=ctk.CTkFont(size=40))
+CEbtn=ctk.CTkButton(btnFrame, text="CE", anchor="nw", width=75, height=65,text_color="black",fg_color="#37b8b4",  font=ctk.CTkFont(size=40), command = CE)
 CEbtn.grid(row=0, column=0, padx=5, pady=5)
 
-backbtn=ctk.CTkButton(btnFrame, text=" <-", anchor="nw", width=75, height=65,text_color="black",fg_color="#37b8b4", font=ctk.CTkFont(size=40))
+backbtn=ctk.CTkButton(btnFrame, text=" <-", anchor="nw", width=75, height=65,text_color="black",fg_color="#37b8b4", font=ctk.CTkFont(size=40), command=Back)
 backbtn.grid(row=0, column=1, padx=5, pady=5)
 
 squarebtn=ctk.CTkButton(btnFrame, text=" x^2", anchor="nw", width=75, height=65,text_color="black",fg_color="#37b8b4", font=ctk.CTkFont(size=40))
