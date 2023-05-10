@@ -55,6 +55,9 @@ def plus_minus():
         currentText = '-' + currentText
     updateText()
 
+    if '.' in currentText and str == '.':
+        return
+
 app=ctk.CTk()
 app.geometry("350x500")
 app.title("Calculator")
